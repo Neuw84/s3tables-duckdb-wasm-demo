@@ -31,10 +31,8 @@ Two things make browser-native S3 Tables access possible:
 - The DuckDB `iceberg` extension does native SigV4 signing for the REST
   catalog since v1.5, so no AWS SDK networking is needed for the catalog path.
 
-The `aws` extension itself is the missing distribution piece this repo patches
-in and the prerequisite for a future `credential_chain` story in the browser
-(which would need a JS-side credential callback in duckdb-wasm; a browser tab
-has no env vars, `~/.aws` files, or IMDS to read).
+Note that the `aws` extension is not needed for the demo as latest versions of duckdb allows this. However, is the prerequisite for a future `credential_chain` story in the browser (which would need a JS-side credential callback in duckdb-wasm; a browser tab
+has no env vars, `~/.aws` files, or IMDS to read). Moreover, it shows how to load a locally developed extension. 
 
 ## Run
 
@@ -66,17 +64,12 @@ and go.
 
 ## Version pinning
 
-The extension binary embeds the DuckDB version it was built against
-(**v1.5.5**) and DuckDB-Wasm refuses mismatched extensions. The app pins
-`@duckdb/duckdb-wasm` to a matching release; if you bump one, rebuild the
-other (see `BUILDING.md`).
+The extension binary embeds the DuckDB version it was built against (**v1.5.5**) and DuckDB-Wasm refuses mismatched extensions. The app pins`@duckdb/duckdb-wasm` to a matching release; if you bump one, rebuild the other (see `BUILDING.md`).
 
 ## Security notes
 
-- Use **temporary** credentials, scope them to the demo table bucket, and
-  prefer short sessions. The app never persists them.
-- The extension is loaded with `allowUnsignedExtensions: true` because it is
-  a local, unsigned build.
+- Use **temporary** credentials, scope them to the demo table bucket, and prefer short sessions. The app never persists them.
+- The extension is loaded with `allowUnsignedExtensions: true` because it isa local, unsigned build.
 - This patch has been vibe coded, although I plan to make a proper review and upstream it, it will take a while. Do not use the code here in production. 
 
 ## License
