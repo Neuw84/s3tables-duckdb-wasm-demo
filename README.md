@@ -83,9 +83,10 @@ other (see `BUILDING.md`).
 
 Demo code: MIT. The compiled extension aggregates:
 
-[duckdb-aws](https://github.com/duckdb/duckdb-aws) (MIT),
-[DuckDB](https://github.com/duckdb/duckdb) (MIT),
-[aws-sdk-cpp](https://github.com/aws/aws-sdk-cpp) and the AWS CRT libraries
-(Apache-2.0), [curl](https://curl.se) (curl license),
-[OpenSSL](https://www.openssl.org) (Apache-2.0), [s2n](https://github.com/aws/s2n-tls)
-(Apache-2.0) and [zlib](https://zlib.net) (zlib license).
+- [duckdb-aws](https://github.com/duckdb/duckdb-aws) (MIT),
+- [DuckDB](https://github.com/duckdb/duckdb) (MIT),
+- [aws-sdk-cpp](https://github.com/aws/aws-sdk-cpp) and the AWS CRT libraries (Apache-2.0),
+- [curl](https://curl.se) (curl license),
+- [OpenSSL](https://www.openssl.org) (Apache-2.0),
+- [s2n](https://github.com/aws/s2n-tls)(Apache-2.0) and
+- [zlib](https://zlib.net) (zlib license).
