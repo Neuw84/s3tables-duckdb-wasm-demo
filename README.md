@@ -1,7 +1,7 @@
-# Querying Amazon S3 Tables from DuckDB-Wasm — end-to-end browser demo
+# Querying Amazon S3 Tables from DuckDB-Wasm: end-to-end browser demo
 
 DuckDB running **entirely in your browser**, writing to and querying
-**Amazon S3 Tables** (Apache Iceberg) — no backend server, no proxy.
+**Amazon S3 Tables** (Apache Iceberg).
 
 This demo exists because the DuckDB `aws` extension is not distributed for
 DuckDB-Wasm ([duckdb/duckdb-wasm#1919](https://github.com/duckdb/duckdb-wasm/issues/1919)).
@@ -32,7 +32,7 @@ Two things make browser-native S3 Tables access possible:
   catalog since v1.5, so no AWS SDK networking is needed for the catalog path.
 
 The `aws` extension itself is the missing distribution piece this repo patches
-in — and the prerequisite for a future `credential_chain` story in the browser
+in and the prerequisite for a future `credential_chain` story in the browser
 (which would need a JS-side credential callback in duckdb-wasm; a browser tab
 has no env vars, `~/.aws` files, or IMDS to read).
 
@@ -77,10 +77,12 @@ other (see `BUILDING.md`).
   prefer short sessions. The app never persists them.
 - The extension is loaded with `allowUnsignedExtensions: true` because it is
   a local, unsigned build.
+- This patch has been vibe coded, although I plan to make a proper review and upstream it, it will take a while. Do not use the code here in production. 
 
 ## License
 
-Demo code: MIT. The compiled extension aggregates
+Demo code: MIT. The compiled extension aggregates:
+
 [duckdb-aws](https://github.com/duckdb/duckdb-aws) (MIT),
 [DuckDB](https://github.com/duckdb/duckdb) (MIT),
 [aws-sdk-cpp](https://github.com/aws/aws-sdk-cpp) and the AWS CRT libraries
